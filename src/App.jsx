@@ -10,7 +10,7 @@ function App() {
       title: "Reciting Quran",
       targetMinutes: 30,
       category: "Quran",
-      completed: false,
+      completed: true,
       streak: 15,
     },
     {
@@ -58,6 +58,23 @@ function App() {
       },
     ]);
   }
+  function toggleComplete(id) {
+  setHabits((prev) =>
+    prev.map((habit) =>
+      habit.id === id
+        ? {
+            ...habit,
+            completed: !habit.completed,
+            streak: !habit.completed ? habit.streak + 1 : habit.streak - 1,
+          }
+        : habit
+    )
+  );
+}
+
+function deleteHabit(id) {
+  setHabits((prev) => prev.filter((habit) => habit.id !== id));
+}
 
   return (
     <main className="min-h-screen bg-slate-100 px-4 py-8">
@@ -68,7 +85,7 @@ function App() {
           <p>Statistics will go here.</p>
         </section>
         <HabitForm onAddHabit={addHabit} />
-        <HabitList habits={habits} />
+        <HabitList habits={habits} onToggle={toggleComplete} onDelete={deleteHabit} />
       </div>
     </main>
   );

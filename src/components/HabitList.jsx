@@ -5,7 +5,7 @@ const CATEGORY_STYLES = {
   Career: "bg-sky-50 text-sky-600",
   Quran: "bg-emerald-50 text-emerald-600",
 };
-function HabitList({ habits }) {
+function HabitList({ habits, onToggle, onDelete }) {
   return (
     <section className="mt-8">
       <h2 className="mb-4 text-2xl font-bold text-slate-900">
@@ -68,6 +68,24 @@ function HabitList({ habits }) {
                 </p>
               </div>
             </div>
+            <div className="mt-4 flex gap-2 border-t border-slate-100 pt-4">
+                <button
+                    onClick={() => onToggle(habit.id)}
+                    className={`flex-1 rounded-lg px-3 py-2 text-sm font-medium transition ${
+                    habit.completed
+                        ? "bg-slate-100 text-slate-600 hover:bg-slate-200"
+                        : "bg-emerald-600 text-white hover:bg-emerald-700"
+                    }`}
+                >
+                    {habit.completed ? "Mark Incomplete" : "Mark Complete"}
+                </button>
+                <button
+                    onClick={() => onDelete(habit.id)}
+                    className="rounded-lg bg-rose-50 px-3 py-2 text-sm font-medium text-rose-600 transition hover:bg-rose-100"
+                >
+                    Delete
+                </button>
+                </div>
           </div>
         ))}
       </div>
