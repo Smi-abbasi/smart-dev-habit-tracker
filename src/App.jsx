@@ -45,6 +45,14 @@ function App() {
       completed: false,
       streak: 7,
     },
+    {
+      id: 1711958800000,
+      title: "GYM",
+      targetMinutes: 60,
+      category: "Exercise",
+      completed: true,
+      streak: 30,
+    },
   ]);
 
   function addHabit(newHabit) {
@@ -90,32 +98,32 @@ const totalFocusMinutes = habits.reduce(
     <main className="min-h-screen bg-slate-100 px-4 py-8">
       <div className="mx-auto max-w-6xl">
         <Header />
-        <section className="mt-8 grid gap-4 sm:grid-cols-3">
-          <div className="rounded-2xl bg-white p-5 shadow-sm ring-1 ring-slate-200">
-            <p className="text-xs font-medium text-slate-500">Completion</p>
-            <p className="mt-1 text-3xl font-bold text-slate-900">
-              {completionPercent}%
-            </p>
-            <p className="mt-1 text-xs text-slate-500">
-              {completedCount} of {totalHabits} habits done
-            </p>
-          </div>
+          <section className="mt-8 grid grid-cols-3 gap-2 sm:gap-4">
+            <div className="rounded-xl bg-white p-3 shadow-sm ring-1 ring-slate-200 sm:rounded-2xl sm:p-5">
+              <p className="text-[10px] font-medium text-slate-500 sm:text-xs">Completion</p>
+              <p className="mt-1 text-xl font-bold text-slate-900 sm:text-3xl">
+                {completionPercent}%
+              </p>
+              <p className="mt-1 hidden text-xs text-slate-500 sm:block">
+                {completedCount} of {totalHabits} habits done
+              </p>
+            </div>
 
-          <div className="rounded-2xl bg-white p-5 shadow-sm ring-1 ring-slate-200">
-            <p className="text-xs font-medium text-slate-500">Total Focus Time</p>
-            <p className="mt-1 text-3xl font-bold text-slate-900">
-              {totalFocusMinutes}
-              <span className="ml-1 text-base font-medium text-slate-500">min</span>
-            </p>
-            <p className="mt-1 text-xs text-slate-500">Planned for today</p>
-          </div>
+            <div className="rounded-xl bg-white p-3 shadow-sm ring-1 ring-slate-200 sm:rounded-2xl sm:p-5">
+              <p className="text-[10px] font-medium text-slate-500 sm:text-xs">Focus Time</p>
+              <p className="mt-1 text-xl font-bold text-slate-900 sm:text-3xl">
+                {totalFocusMinutes}
+                <span className="ml-1 text-xs font-medium text-slate-500 sm:text-base">min</span>
+              </p>
+              <p className="mt-1 hidden text-xs text-slate-500 sm:block">Planned for today</p>
+            </div>
 
-          <div className="rounded-2xl bg-white p-5 shadow-sm ring-1 ring-slate-200">
-            <p className="text-xs font-medium text-slate-500">Active Habits</p>
-            <p className="mt-1 text-3xl font-bold text-slate-900">{totalHabits}</p>
-            <p className="mt-1 text-xs text-slate-500">Being tracked</p>
-          </div>
-        </section>
+            <div className="rounded-xl bg-white p-3 shadow-sm ring-1 ring-slate-200 sm:rounded-2xl sm:p-5">
+              <p className="text-[10px] font-medium text-slate-500 sm:text-xs">Habits</p>
+              <p className="mt-1 text-xl font-bold text-slate-900 sm:text-3xl">{totalHabits}</p>
+              <p className="mt-1 hidden text-xs text-slate-500 sm:block">Being tracked</p>
+            </div>
+          </section>
         <HabitForm onAddHabit={addHabit} />
         <HabitList habits={habits} onToggle={toggleComplete} onDelete={deleteHabit} />
       </div>

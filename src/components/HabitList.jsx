@@ -4,7 +4,10 @@ const CATEGORY_STYLES = {
   Reading: "bg-amber-50 text-amber-600",
   Career: "bg-sky-50 text-sky-600",
   Quran: "bg-emerald-50 text-emerald-600",
+  Exercise: "bg-orange-50 text-orange-600",
+  Learning: "bg-violet-50 text-violet-600",
 };
+
 function HabitList({ habits, onToggle, onDelete }) {
   return (
     <section className="mt-8">

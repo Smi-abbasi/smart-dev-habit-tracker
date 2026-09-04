@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const CATEGORIES = ["Quran", "Health", "Reading", "Career","Coding"];
+const CATEGORIES = ["Quran", "Health", "Reading", "Career","Coding","Exercise"];
 
 function HabitForm({ onAddHabit }) {
   const [title, setTitle] = useState("");
