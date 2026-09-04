@@ -13,16 +13,15 @@ function App() {
       completed: false,
       streak: 5,
     },
-    
-    {
-    id: 1,
-    title: "Learn React",
-    targetTime: 60,
-    category: "Learning",
-    focusTime: 30,
-    completed: false,
-    streak: 2
-    },
+
+     {
+        id: 1,
+        title: "Learn React",
+        targetMinutes: 60,
+        category: "Learning",
+        completed: false,
+        streak: 9,
+      },
 
     {
       id: 1711958500000,
