@@ -1,3 +1,10 @@
+const CATEGORY_STYLES = {
+  Coding: "bg-indigo-50 text-indigo-600",
+  Health: "bg-rose-50 text-rose-600",
+  Reading: "bg-amber-50 text-amber-600",
+  Career: "bg-sky-50 text-sky-600",
+  Quran: "bg-emerald-50 text-emerald-600",
+};
 function HabitList({ habits }) {
   return (
     <section className="mt-8">
@@ -17,9 +24,13 @@ function HabitList({ habits }) {
                   {habit.title}
                 </h3>
 
-                <p className="mt-1 text-sm text-slate-500">
-                  {habit.category}
-                </p>
+                <span
+                    className={`mt-1 inline-block rounded-full px-2 py-0.5 text-xs font-medium ${
+                        CATEGORY_STYLES[habit.category] || "bg-slate-100 text-slate-600"
+                    }`}
+                    >
+                    {habit.category}
+               </span>
               </div>
 
               <span
