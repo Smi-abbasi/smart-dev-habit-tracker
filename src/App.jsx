@@ -76,13 +76,45 @@ function deleteHabit(id) {
   setHabits((prev) => prev.filter((habit) => habit.id !== id));
 }
 
+const totalHabits = habits.length;
+const completedCount = habits.filter((habit) => habit.completed).length;
+const completionPercent =
+  totalHabits === 0 ? 0 : Math.round((completedCount / totalHabits) * 100);
+
+const totalFocusMinutes = habits.reduce(
+  (sum, habit) => sum + habit.targetMinutes,
+  0
+);
+
   return (
     <main className="min-h-screen bg-slate-100 px-4 py-8">
       <div className="mx-auto max-w-6xl">
         <Header />
-        <section className="mt-8">
-          <h2>Overview</h2>
-          <p>Statistics will go here.</p>
+        <section className="mt-8 grid gap-4 sm:grid-cols-3">
+          <div className="rounded-2xl bg-white p-5 shadow-sm ring-1 ring-slate-200">
+            <p className="text-xs font-medium text-slate-500">Completion</p>
+            <p className="mt-1 text-3xl font-bold text-slate-900">
+              {completionPercent}%
+            </p>
+            <p className="mt-1 text-xs text-slate-500">
+              {completedCount} of {totalHabits} habits done
+            </p>
+          </div>
+
+          <div className="rounded-2xl bg-white p-5 shadow-sm ring-1 ring-slate-200">
+            <p className="text-xs font-medium text-slate-500">Total Focus Time</p>
+            <p className="mt-1 text-3xl font-bold text-slate-900">
+              {totalFocusMinutes}
+              <span className="ml-1 text-base font-medium text-slate-500">min</span>
+            </p>
+            <p className="mt-1 text-xs text-slate-500">Planned for today</p>
+          </div>
+
+          <div className="rounded-2xl bg-white p-5 shadow-sm ring-1 ring-slate-200">
+            <p className="text-xs font-medium text-slate-500">Active Habits</p>
+            <p className="mt-1 text-3xl font-bold text-slate-900">{totalHabits}</p>
+            <p className="mt-1 text-xs text-slate-500">Being tracked</p>
+          </div>
         </section>
         <HabitForm onAddHabit={addHabit} />
         <HabitList habits={habits} onToggle={toggleComplete} onDelete={deleteHabit} />
