@@ -2,6 +2,8 @@
 
 A clean and responsive React application designed to help developers build consistent habits, manage daily tasks, track focus time, and monitor productivity progress.
 
+🔗 **[Visit Live Site](https://smi-abbasi.github.io/smart-dev-habit-tracker/)**
+
 ## Overview
 
 **Smart Dev Habit & Task Tracker** provides a simple workspace for managing personal development activities such as coding, learning, reading, career work, exercise, health, and more.
@@ -84,5 +86,8 @@ src/
 └── main.jsx
 ```
 
-## Author 
-Sami Ullah AKhtar
+---
+
+## Author
+
+Built by **Sami Ullah Akhtar** ([@Smi-abbasi](https://github.com/Smi-abbasi)) — React Learner, building projects to learn by doing.
